@@ -8,6 +8,9 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
+Nodepie = require 'nodepie'
+hnFeed  = "https://news.ycombinator.com/rss"
+
 module.exports = (robot) ->
   robot.hear /gogotanaka/, (msg) ->
     msg.send "http://www.amazon.co.jp/registry/wishlist/2F8668NWI0AVD"
@@ -19,6 +22,14 @@ module.exports = (robot) ->
 
       個人のリポジトリにあるのはちょっと嫌なのでこれのorganizationとかあっても良いかもですね！
     '''
+
+  robot.hear /roar HN/, (msg) ->
+    msg.http(hnFeedUrl).get() (err, res, body) ->
+      feed = new NodePie(body)
+      feed.init()
+      items = feed.getItems(0, 9)
+      msg.send item.getTitle() + ": " + item.getPermalink() + " (" + item.getComments()?.html + ")" for item in items
+
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
