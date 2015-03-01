@@ -14,10 +14,8 @@ module.exports = (robot) ->
 
   robot.hear /how to contribute/, (msg) ->
     msg.send '''
-      https://github.com/gogotanaka/hubot
+      https://github.com/taigahackers/taiga_bot
       までpr投げて頂ければ適当にdeployしておきます！
-
-      個人のリポジトリにあるのはちょっと嫌なのでこれのorganizationとかあっても良いかもですね！
     '''
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
