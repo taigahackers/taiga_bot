@@ -11,6 +11,14 @@
 module.exports = (robot) ->
   robot.hear /gogotanaka/, (msg) ->
     msg.send "http://www.amazon.co.jp/registry/wishlist/2F8668NWI0AVD"
+
+  robot.hear /how to contribute/, (msg) ->
+    msg.send '''
+      https://github.com/gogotanaka/hubot
+      までpr投げて頂ければ適当にdeployしておきます！
+
+      個人のリポジトリにあるのはちょっと嫌なのでこれのorganizationとかあっても良いかもですね！
+    '''
   #
   # robot.respond /open the (.*) doors/i, (msg) ->
   #   doorType = msg.match[1]
