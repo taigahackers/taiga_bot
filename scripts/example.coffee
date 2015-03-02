@@ -8,7 +8,7 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
-Nodepie = require 'nodepie'
+NodePie = require 'nodepie'
 hnFeedUrl  = "https://news.ycombinator.com/rss"
 
 module.exports = (robot) ->
